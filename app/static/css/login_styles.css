@@ -1,0 +1,67 @@
+body {
+  background-color: #e5ffe5;
+}
+
+/*div {
+  outline-style: solid;
+  outline-color: blue;
+}*/
+
+.navbar-default {
+  background-color: #00b300;
+  padding: 20px 0px;
+}
+
+#info_panel {
+  margin-left: 40px;
+  width: 500px;
+  float: left;
+  /*display: inline-block;*/
+}
+
+h3 {
+  margin-bottom: 40px;
+  color: #454d45
+}
+
+h4 {
+  color: #454d45;
+  font-weight: normal;
+}
+
+#info_panel {
+
+}
+
+/*label {
+  margin-right: 5px;*/
+/*}*/
+
+#registration {
+  margin-right: 40px;
+  width: 450px;
+  float: right;
+
+  /*display: inline-block;*/
+}
+
+.form-control {
+  margin-left: 10px;
+}
+
+#registration_form {
+  padding: 20px;
+  background-color: white;
+}
+
+h1 {
+  color: #daf2da;
+  background-color: #00b300;
+  margin: 0px;
+  padding: 15px;
+  font-weight: normal;
+}
+
+#pw_constraint {
+  margin-left: 110px;
+}

@@ -1,0 +1,84 @@
+<html>
+  <head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="../static/bootstrap/css/bootstrap-theme.css"  media="screen,projection"/>
+
+
+    <link type="text/css" rel="stylesheet" href="../static/bootstrap/css/bootstrap.css"  media="screen,projection"/>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/index_styles.css" type="text/css">
+  </head>
+  <body>
+    <nav class="navbar navbar-default" id="login_navbar">
+      <div class="container-fluid">
+        <h2>Hi {{ session['username'] }}!</h2>
+        <!-- <a href= "/logout"><button type="btton" id="logout">Logout</button></a> -->
+        <a href= "/logout"><button id="logout"><img src="../static/images/door32.png" alt="..." class="button_img"> Logout</button></a>
+      </div>
+    </nav>
+
+    <div id="side_panel">
+      <form method='POST' action='/post' id="post_idea">
+        <textarea name="content" placeholder="Post a new idea here"></textarea>
+        <button type="submit"><img src="../static/images/bright4.png" alt="..." class="button_img" > Idea!</button>
+      </form>
+    </div>
+    <div id="content_body">
+        {% for idea in ideas %}
+        <div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4><a href='/users/{{ idea['user_id'] }}'>{{ idea['username'] }}</a> says:</h4>
+            </div>
+            <div class="panel-body">
+              <h4>{{ idea['content'] }}</h4>
+            </div>
+            <div class="panel-footer">
+              <div class="idea_nav">
+                <p class="id_bar"><a href='/bright_ideas/{{ idea['id'] }}'>{{ idea['like_count'] }} people</a> have upvoted this idea</p>
+                <ul class="idea_nav_list">
+                  <li><form action='/like/{{ idea['id'] }}' method="post" class="submit_button">
+                    <button type="submit"><img src="../static/images/plane32.png" alt="..." class="button_img" > Upvote</button>
+                  </form><li>
+                    {% if idea['user_id'] == session['id'] %}
+                    <li><form action='/delete/{{ idea['id'] }}' method="post" class="submit_button">
+                      <button type="submit"><img src="../static/images/recycling32px.png" alt="..." class="button_img" > Delete Idea</button>
+                    </form></li>
+                    <li><form action='/update/{{ idea['id'] }}' method="post" class="submit_button">
+                      <button type="submit"><img src="../static/images/write32px.png" alt="..." class="button_img" > Edit Idea</button>
+                    </form></li>
+                    {% endif %}
+                </ul>
+              </div>
+              <div id="comments">
+                <h4>Comments</h4>
+                <ul>
+                  {% for comment in comments %}
+                    {% if comment['idea_id'] == idea['id'] %}
+                      <li class="comment_name">{{ comment['commenter_name'] }} wrote:</li>
+                      <li><div class="comment_list"><p>{{ comment['content'] }}</p></div></li>
+                      {% if comment['commenter_id'] == session['id'] %}
+                      <li class="delete_comment"><form action='/delete/comment/{{ comment['id'] }}' method="post" class="submit_button">
+                        <button type="submit"><img src="../static/images/recycling32px.png" alt="..." class="button_img" > Delete Comment</button>
+                      <li></form>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                  <li><form id="comment" action='/comment/{{idea['id']}}' method='post'>
+                    <textarea name="content" placeholder="Post a comment here"></textarea>
+                    <button type="submit"><img src="../static/images/write32px.png" alt="..." class="button_img" > Comment</button>
+                    <!-- <input type="submit" value="Comment"> -->
+                    </form>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+/*div{
+  outline-style: solid;
+  outline-color: blue;
+}*/
+
+body {
+  background-color: #e5ffe5;
+}
+
+.navbar-default {
+  background-color: #00b300;
+  padding: 20px 0px;
+  background-image: linear-gradient(bottom, #00b300, #006600, 100%);
+  /*position: fixed;*/
+  width: 100%;
+  height: 90px;
+
+}
+
+#logout {
+  float: right;
+  margin-right: 20px;
+}
+
+h2 {
+  display: inline;
+  margin-left: 20px;
+}
+
+.button_img {
+  width: 20px;
+  height: 20px;
+}
+
+.submit_button {
+  /*float: right;*/
+  display: inline;
+}
+
+.idea_content{
+  background-color: white;
+  border-style: solid;
+  border-width:thin;
+  border-color: grey;
+  padding: 20px;
+}
+
+#show_user_jumbo{
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#show_idea_jumbo{
+  width: 600px;
+  display: inline-block;
+}
+
+#liker_list{
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+
+}
+
+#main_content {
+  width: 1000px;
+  margin: auto;
+
+}

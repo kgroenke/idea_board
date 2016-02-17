@@ -1,0 +1,55 @@
+/** {
+  font-family: monaco;
+}*/
+
+textarea {
+  display: block;
+  width: 300px;
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 0px;
+}
+
+#info {
+  border-bottom-style: solid
+}
+
+div {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.nav_bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav_bar li {
+  display: inline;
+}
+
+.nav_bar {
+  padding: 20px;
+}
+
+#alert {
+  color: red;
+}
+
+#like {
+  margin: 0px;
+}
+
+#logout {
+  margin-bottom: 20px;
+}
+#comment {
+  margin-left: 20px;
+}
