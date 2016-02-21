@@ -20,7 +20,7 @@ def initialize_app():
     app = Flask('app', static_folder=static_folder, template_folder=template_folder, instance_path=instance_path)
 
     initialize_config(app)
-    initialize_db(app)
+    # initialize_db(app)
     initialize_routes(app)
 
     return app
