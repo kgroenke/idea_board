@@ -7,6 +7,8 @@
 """
 from flask import current_app
 from flask.ext.bcrypt import Bcrypt
+from flask.ext.sqlalchemy import SQLAlchemy
+db = SQLAlchemy(app)
 
 class Model(object):
     def __init__(self):
