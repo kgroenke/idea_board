@@ -1,4 +1,4 @@
-from system.core.model import Model
+# from system.core.model import Model
 from flask import Flask, session
 from flask.ext.bcrypt import Bcrypt
 app = Flask(__name__)
