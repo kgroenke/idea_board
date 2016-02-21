@@ -1,7 +1,10 @@
 from system.core.controller import *
 from flask import Flask, session
 from flask.ext.bcrypt import Bcrypt
+from flask.ext.sqlalchemy import SQLAlchemy
 app = Flask(__name__)
+app.confog['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+db = SQLAlchemy(app)
 flask_bcrypt = Bcrypt(app)
 import re
 
