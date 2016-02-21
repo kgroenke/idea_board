@@ -1,5 +1,6 @@
 from system.core.controller import *
 from flask import Flask, session
+import os
 from flask.ext.bcrypt import Bcrypt
 from flask.ext.sqlalchemy import SQLAlchemy
 app = Flask(__name__)
