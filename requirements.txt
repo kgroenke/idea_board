@@ -12,7 +12,6 @@ itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
 ndg-httpsclient==0.4.0
-numpy==1.9.2
 psycopg2==2.6.1
 pyasn1==0.1.9
 pycparser==2.14
