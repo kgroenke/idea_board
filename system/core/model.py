@@ -16,4 +16,3 @@ class Model(object):
     def __init__(self):
         self.db = db
         self.bcrypt = Bcrypt(current_app)
-        self.db = current_app.db
