@@ -1,4 +1,5 @@
-import mysql.connector
+import psycopg2
+import urlparse
 import collections
 
 def _convert(data):
@@ -13,15 +14,16 @@ def _convert(data):
 
 class MySQLConnection(object):
     def __init__(self, config):
-        dbconfig = {
-            'user': config.DB_USERNAME,
-            'password': config.DB_PASSWORD,
-            'database': config.DB_DATABASE_NAME,
-            'host': config.DB_HOST,
-            'port': config.DB_PORT,
-        }
-        dbconfig.update(config.DB_OPTIONS)
-        self.conn = mysql.connector.connect(**dbconfig)
+        urlparse.uses_netloc.append("postgres")
+        url = urlparse.urlparse(os.environ["DATABASE_URL"])
+
+        conn = psycopg2.connect(
+            database=url.path[1:],
+            user=url.username,
+            password=url.password,
+            host=url.hostname,
+            port=url.port
+        )
 
     def query_db(self, query, data=None):
         cursor = self.conn.cursor(dictionary=True)
