@@ -43,7 +43,7 @@ def init_db(app):
             # TODO: Add in SQLAlchemy configurations here
             pass
         else:
-             conn = psycopg2.connect(
+            conn = psycopg2.connect(
                 database=url.path[1:],
                 user=url.username,
                 password=url.password,
