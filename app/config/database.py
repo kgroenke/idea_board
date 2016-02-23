@@ -9,7 +9,7 @@ import urlparse
 
 urlparse.uses_netloc.append("postgres")
 url = urlparse.urlparse(os.environ["DATABASE_URL"])
-# 
+#
 # conn = psycopg2.connect(
 #     database=url.path[1:],
 #     user=url.username,
@@ -32,9 +32,9 @@ class DevelopmentDBConfig(DBConfig):
     DB_HOST = url.hostname
     DB_PORT = url.port
     """ unix_socket is used for connecting with MAMP. Take this out if you aren't using MAMP """
-    DB_OPTIONS = {
-        'unix_socket': '/Applications/MAMP/tmp/mysql/mysql.sock'
-    }
+    # DB_OPTIONS = {
+    #     'unix_socket': '/Applications/MAMP/tmp/mysql/mysql.sock'
+    # }
 
 """ Put Staging Specific Configurations here """
 class StagingDBConfig(DBConfig):

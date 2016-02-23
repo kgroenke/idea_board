@@ -4,9 +4,30 @@
     This file takes the configurations from the database configuration file and creates the "db" object
     The "db" object can be used by all of the models to interact with the database
 """
+
+# import os
+# import psycopg2
+# import urlparse
+#
+# urlparse.uses_netloc.append("postgres")
+# url = urlparse.urlparse(os.environ["DATABASE_URL"])
+#
+# conn = psycopg2.connect(
+#     database=url.path[1:],
+#     user=url.username,
+#     password=url.password,
+#     host=url.hostname,
+#     port=url.port
+# )
+
 from app.config import database
 import importlib
 import os
+import psycopg2
+import urlparse
+
+urlparse.uses_netloc.append("postgres")
+url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
 def _get_config(env):
     return {
@@ -22,8 +43,15 @@ def init_db(app):
             # TODO: Add in SQLAlchemy configurations here
             pass
         else:
-            driver_file = 'system.db.drivers._'+config.DB_DRIVER
-            db_connector = importlib.import_module(driver_file)
-            db = db_connector.connect(config)
-            app.db = db
+             conn = psycopg2.connect(
+                database=url.path[1:],
+                user=url.username,
+                password=url.password,
+                host=url.hostname,
+                port=url.port
+            )
+            # driver_file = 'system.db.drivers._'+config.DB_DRIVER
+            # db_connector = importlib.import_module(driver_file)
+            # db = db_connector.connect(config)
+            app.db = conn
             app.config['DB_ORM'] = False
