@@ -6,7 +6,7 @@
 from flask.ext.script import Manager, Server
 from system.init import initialize_app
 import subprocess
-# import os
+import os
 # import psycopg2
 # import urlparse
 #
