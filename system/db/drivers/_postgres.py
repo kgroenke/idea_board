@@ -29,7 +29,7 @@ class MySQLConnection(object):
         )
 
     def query_db(self, query, data=None):
-        cursor = self.conn.cursor(dictionary=True)
+        cursor = self.conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
         data = cursor.execute(query, data)
         if query[0:6].lower() != 'select':
             self.conn.commit()
