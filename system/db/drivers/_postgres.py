@@ -36,4 +36,4 @@ class MySQLConnection(object):
             return _convert(result)
 
 def connect(config):
-    return MySQLConnection(config)
+    return psycopg2.connect(config)
