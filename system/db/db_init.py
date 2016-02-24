@@ -50,7 +50,7 @@ def init_db(app):
                 host=url.hostname,
                 port=url.port
             )
-            # driver_file = 'system.db.drivers._'+config.DB_DRIVER
+            driver_file = 'system.db.drivers._'+config.DB_DRIVER
             # db_connector = importlib.import_module(driver_file)
             # db = db_connector.connect(config)
             app.db = conn
