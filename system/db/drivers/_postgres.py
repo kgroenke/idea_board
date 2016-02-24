@@ -1,6 +1,7 @@
 import psycopg2
 import urlparse
 import collections
+import os
 
 def _convert(data):
     if isinstance(data, basestring):
