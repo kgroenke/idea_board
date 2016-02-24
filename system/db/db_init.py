@@ -53,5 +53,5 @@ def init_db(app):
             driver_file = 'system.db.drivers._'+config.DB_DRIVER
             db_connector = importlib.import_module(driver_file)
             db = db_connector.connect(config)
-            # app.db = conn
+            app.db = db
             app.config['DB_ORM'] = False
