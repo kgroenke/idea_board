@@ -17,7 +17,9 @@ class MySQLConnection(object):
         urlparse.uses_netloc.append("postgres")
         url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
-        conn = psycopg2.connect(
+
+
+        self.conn = psycopg2.connect(
             database=url.path[1:],
             user=url.username,
             password=url.password,
@@ -36,4 +38,4 @@ class MySQLConnection(object):
             return _convert(result)
 
 def connect(config):
-    return 'psycopg2.connect(config)'
+    return MySQLConnection(config)
