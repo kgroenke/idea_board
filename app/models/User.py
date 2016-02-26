@@ -77,7 +77,7 @@ class User(Model):
         return self.db.query_db(post_idea_query)
 
     def like(self, id):
-        like_query = "INSERT INTO likes(idea_id, user_id) VALUES('{}', '{}')".format(id, session['id'])
+        like_query = "INSERT INTO likes(idea_id, liker_id) VALUES('{}', '{}')".format(id, session['id'])
         like = self.db.query_db(like_query)
 
         update_count_query = "UPDATE ideas SET like_count = like_count + 1 WHERE id ='{}'".format(id)
