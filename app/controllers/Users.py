@@ -14,7 +14,13 @@ class Users(Controller):
         super(Users, self).__init__(action)
         self.load_model('User')
 
+    # def login(self):
+    #     return self.load_view('login.html')
+
     def index(self):
+        return self.load_view('login.html')
+
+    def show(self):
         ideas = self.models['User'].get_ideas()
         comments = self.models['User'].get_comments()
         return self.load_view('index.html', ideas=ideas, comments=comments)
@@ -32,9 +38,6 @@ class Users(Controller):
             for message in create_status['errors']:
                 flash(message)
             return redirect('/')
-
-    def login(self):
-        return self.load_view('login.html')
 
     def signin(self):
         login_info = {

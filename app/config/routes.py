@@ -17,8 +17,8 @@ from system.core.router import routes
     The automatically generated routes respond to all of the http verbs (GET, POST, PUT, PATCH, DELETE)
 """
 routes['default_controller'] = 'Users'
-routes['/'] = 'Users#login'
-routes['/bright_ideas'] = 'Users#index'
+routes['/'] = 'Users#index'
+routes['/bright_ideas'] = 'Users#show'
 routes['POST']['/register'] = 'Users#register'
 routes['POST']['/signin'] = 'Users#signin'
 routes['/logout'] = 'Users#logout'
