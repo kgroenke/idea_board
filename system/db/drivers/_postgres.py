@@ -10,7 +10,9 @@ def _convert(data):
     elif isinstance(data, collections.Mapping):
         return dict(map(_convert, data.iteritems()))
     elif isinstance(data, collections.Iterable):
-        return type(data)(map(_convert, data))
+        print data
+        return data
+        # return type(data)(map(_convert, data))
     else:
         return data
 
