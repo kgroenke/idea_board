@@ -86,7 +86,7 @@ class User(Model):
         return like
 
     def users(self, id):
-        user_info_query = "SELECT username, COUNT(ideas.id) AS idea_count, SUM(ideas.like_count) AS total_likes FROM users LEFT JOIN ideas ON users.id = ideas.user_id WHERE users.id = '{}'".format(id)
+        user_info_query = "SELECT username, COUNT(ideas.id) AS idea_count, SUM(ideas.like_count) AS total_likes FROM users LEFT JOIN ideas ON users.id = ideas.user_id WHERE users.id = '{}' GROUP BY username".format(id)
         return self.db.query_db(user_info_query)
 
     def comment_count(self, id):
