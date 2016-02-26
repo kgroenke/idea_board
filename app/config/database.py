@@ -45,7 +45,7 @@ class StagingDBConfig(DBConfig):
 
 """ Put Production Specific Configurations here """
 class ProductionDBConfig(DBConfig):
-    DB_USERNAME = 'root'
-    DB_PASSWORD = 'root'
-    DB_DATABASE_NAME = 'new_red_belt'
-    DB_HOST = 'localhost'
+    DB_USERNAME = url.username
+    DB_PASSWORD = url.password
+    DB_DATABASE_NAME = 'idea_board'
+    DB_HOST = url.hostname

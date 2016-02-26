@@ -31,7 +31,7 @@ class Users(Controller):
         else:
             for message in create_status['errors']:
                 flash(message)
-            return redirect('/main')
+            return redirect('/')
 
     def login(self):
         return self.load_view('login.html')
@@ -48,11 +48,11 @@ class Users(Controller):
         else:
             invalid = "Error: invalid username or password"
             flash(invalid)
-            return redirect('/main')
+            return redirect('/')
 
     def logout(self):
         session.clear()
-        return redirect('/main')
+        return redirect('/')
 
     def post(self):
         content = request.form.get('content')
