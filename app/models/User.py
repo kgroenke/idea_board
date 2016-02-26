@@ -99,7 +99,7 @@ class User(Model):
         return self.db.query_db(display_post_query)
 
     def show_idea(self, id):
-        idea_likes_query = "SELECT username, users.id AS user_id FROM users LEFT JOIN likes ON users.id = likes.user_id WHERE likes.idea_id = '{}' GROUP BY user_id".format(id)
+        idea_likes_query = "SELECT username, users.id AS user_id FROM users LEFT JOIN likes ON users.id = likes.liker_id WHERE likes.idea_id = '{}' GROUP BY user_id".format(id)
         return self.db.query_db(idea_likes_query)
 
     def delete_idea(self, id):
