@@ -121,5 +121,11 @@ target/
 # dotenv
 .env
 
-# text files
-.txt
+# requirements file
+requirements.txt
+
+# dependencies file
+dependencies.txt
+
+# database
+/config/database.py
