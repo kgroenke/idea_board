@@ -117,9 +117,9 @@ class User(Model):
         self.db.query_db(delete_comment_query)
 
     def comment(self, comment_info):
-        create_comment_query = "INSERT INTO comments(content, created_at, updated_at,  idea_id, user_id) VALUES('{}', NOW(), NOW(), '{}', '{}')".format(comment_info['content'], comment_info['idea_id'], session['id'])
+        create_comment_query = "INSERT INTO comments(content, created_at, updated_at,  idea_id, user_id) VALUES($${}$$, NOW(), NOW(), '{}', '{}')".format(comment_info['content'], comment_info['idea_id'], session['id'])
         return self.db.query_db(create_comment_query)
 
     def edit(self, info):
-        update_query = "UPDATE ideas SET content = '{}' WHERE id = '{}'".format(info['content'], info['id'])
+        update_query = "UPDATE ideas SET content = $${}$$ WHERE id = '{}'".format(info['content'], info['id'])
         return self.db.query_db(update_query)
