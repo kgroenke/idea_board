@@ -14,7 +14,7 @@ class User(Model):
 
         errors = []
 
-        check_username_query = "SELECT * FROM users WHERE username = '{}'".format(user_info['username'])
+        check_username_query = "SELECT * FROM users WHERE username = $${}$$".format(user_info['username'])
         usernames = self.db.query_db(check_username_query)
 
         if len(usernames) > 0:
@@ -35,7 +35,7 @@ class User(Model):
 
         else:
             pw_hash = self.bcrypt.generate_password_hash(password)
-            registration_query = "INSERT INTO users (username, pw_hash, created_at, updated_at) VALUES ('{}', '{}', NOW(), NOW())".format(user_info['username'], pw_hash)
+            registration_query = "INSERT INTO users (username, pw_hash, created_at, updated_at) VALUES ($${}$$, '{}', NOW(), NOW())".format(user_info['username'], pw_hash)
             self.db.query_db(registration_query)
 
             select_user_query = "SELECT * FROM users ORDER BY id DESC LIMIT 1"
