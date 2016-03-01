@@ -73,7 +73,7 @@ class User(Model):
 
 
     def post_idea(self, content):
-        post_idea_query = "INSERT INTO ideas(content, like_count, user_id) VALUES('{}', 0, '{}')".format(content, session['id'])
+        post_idea_query = "INSERT INTO ideas(content, like_count, user_id) VALUES($$'{}'$$, 0, '{}')".format(content, session['id'])
         return self.db.query_db(post_idea_query)
 
     def like(self, id):
